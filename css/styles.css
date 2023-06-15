@@ -1,0 +1,32 @@
+header {
+  display: flex;
+  background-color: #375baa;
+  height: 100px;
+}
+
+body {
+  background-color: #ccc;
+}
+
+.my-deck {
+  height: 50%;
+  background-color: #375baa;
+  border-style: none;
+  font-size: 14px;
+  color: white;
+}
+
+.tcg-logo {
+  width: 150px;
+}
+
+.header-row {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.my-deck-button-container {
+  position: fixed;
+  right: 0;
+}
