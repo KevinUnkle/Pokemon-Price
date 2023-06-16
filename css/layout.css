@@ -8,6 +8,26 @@
   padding: 0 1.5rem;
 }
 
+.card-container {
+  max-width: 575px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  margin-top: 30px;
+}
+
+.card-row {
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin-left: 5px;
+  margin-top: 5px;
+  width: 160px;
+  height: 200px;
+  background-color: black;
+}
+
 .row {
   display: flex;
 }
@@ -22,6 +42,10 @@
     max-width: 900px;
   }
 
+  .card-container {
+    max-width: 1600px;
+  }
+
   .column-full,
   .column-half {
     padding: 0 0.75rem;
@@ -29,5 +53,15 @@
 
   .column-half {
     width: 50%;
+  }
+
+  .card {
+    width: 240px;
+    height: 310px;
+    background-color: black;
+  }
+
+  .card-row {
+    justify-content: space-evenly;
   }
 }

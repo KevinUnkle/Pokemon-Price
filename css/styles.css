@@ -29,4 +29,40 @@ body {
 .my-deck-button-container {
   position: fixed;
   right: 0;
+  margin-right: 10px;
+}
+
+.search-bar {
+  width: 365px;
+  border-radius: 8px;
+  height: 40px;
+  margin-top: 20px;
+  border-style: ridge;
+  border-width: 1px;
+  border-color: #bb1218;
+}
+
+.filter-bar {
+  width: 365px;
+  border-radius: 8px;
+  height: 40px;
+  margin-top: 20px;
+  border-style: ridge;
+  border-width: 1px;
+  border-color: #bb1218;
+}
+
+.search-row {
+  justify-content: space-between;
+}
+
+/*
+.card-row {
+  flex-wrap: ;
+} */
+
+.alakazam {
+  width: 160px;
+  height: 200px;
+  object-fit: cover;
 }

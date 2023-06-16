@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
   <header>
     <div class="row header-row">
@@ -19,24 +20,34 @@
       </div>
       <div class="my-deck-button-container">
         <button type="button" class="my-deck">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Pok%C3%A9_Ball_icon.svg" alt="pokeball image" />My
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Pok%C3%A9_Ball_icon.svg"
+            alt="pokeball image" />My
           Deck
         </button>
       </div>
     </div>
   </header>
   <div class="container">
-    <div class="row">
-      <div class="column">
-        <div class="card">
-
-        </div>
-      </div>
+    <div class="row search-row">
+      <input type="text" id="search-bar" class="search-bar" placeholder="Search by name, set, rarity...">
+      <input type="text" id="filter-bar" class="filter-bar" placeholder="Filter by name, set, rarity...">
     </div>
   </div>
+  <div class="card-container">
+    <div class="row card-row" id="pokecard-row">
+    </div>
+  </div>
+  <div class="row" id="no-cards-text">
+    <div class="column">
+      <h1>Cards Loading...</h1>
+    </div>
+  </div>
+
+
   <main>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>
+
 </html>
