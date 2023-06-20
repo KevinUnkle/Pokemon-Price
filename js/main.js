@@ -9,18 +9,88 @@ const cardSets = {
   svSet: null
 };
 
-function getPokemonCardData() {
+function getBaseSetData() {
   const xhr = new XMLHttpRequest();
   xhr.open('GET', 'https://api.pokemontcg.io/v2/cards?q=set.id:base1');
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
     cardSets.baseSet = xhr.response.data;
     data.set = xhr.response.data;
-    cardsFromNetwork(xhr.response.data);
+    cardsFromNetwork(data.set);
   });
   xhr.send();
 }
-getPokemonCardData();
+function getExData() {
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', 'https://api.pokemontcg.io/v2/cards?q=set.id:ex1');
+  xhr.responseType = 'json';
+  xhr.addEventListener('load', function () {
+    cardSets.exSet = xhr.response.data;
+  });
+  xhr.send();
+}
+function getDpData() {
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', 'https://api.pokemontcg.io/v2/cards?q=set.id:dp1');
+  xhr.responseType = 'json';
+  xhr.addEventListener('load', function () {
+    cardSets.dpSet = xhr.response.data;
+  });
+  xhr.send();
+}
+function getBwData() {
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', 'https://api.pokemontcg.io/v2/cards?q=set.id:bw1');
+  xhr.responseType = 'json';
+  xhr.addEventListener('load', function () {
+    cardSets.bwSet = xhr.response.data;
+  });
+  xhr.send();
+}
+function getXyData() {
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', 'https://api.pokemontcg.io/v2/cards?q=set.id:xy1');
+  xhr.responseType = 'json';
+  xhr.addEventListener('load', function () {
+    cardSets.xySet = xhr.response.data;
+  });
+  xhr.send();
+}
+function getSmData() {
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', 'https://api.pokemontcg.io/v2/cards?q=set.id:sm1');
+  xhr.responseType = 'json';
+  xhr.addEventListener('load', function () {
+    cardSets.smSet = xhr.response.data;
+  });
+  xhr.send();
+}
+function getSwshData() {
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', 'https://api.pokemontcg.io/v2/cards?q=set.id:swsh1');
+  xhr.responseType = 'json';
+  xhr.addEventListener('load', function () {
+    cardSets.swshSet = xhr.response.data;
+  });
+  xhr.send();
+}
+function getSvData() {
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', 'https://api.pokemontcg.io/v2/cards?q=set.id:sv1');
+  xhr.responseType = 'json';
+  xhr.addEventListener('load', function () {
+    cardSets.svSet = xhr.response.data;
+  });
+  xhr.send();
+}
+getBaseSetData();
+getExData();
+getDpData();
+getBwData();
+getXyData();
+getSmData();
+getSwshData();
+getSvData();
 
 function renderCard(card) {
   const $cardDiv = document.createElement('div');
@@ -50,7 +120,6 @@ function hideNoCardsText() {
 }
 
 const $searchBar = document.querySelector('#search-bar');
-const $filterBar = document.querySelector('#filter-bar');
 
 $searchBar.addEventListener('input', function (event) {
   const $searchValue = event.target.value;
@@ -65,9 +134,17 @@ $searchBar.addEventListener('input', function (event) {
   }
 });
 
-$filterBar.addEventListener('click', function (event) {
+const $aDropDown = document.querySelectorAll('a');
 
-});
+for (let i = 0; i < $aDropDown.length; i++) {
+  const $aIndex = $aDropDown[i];
+  $aIndex.addEventListener('click', function (event) {
+    const $clickEvent = event.target;
+    const $filterId = $clickEvent.getAttribute('id');
+    data.set = cardSets[$filterId];
+    cardsFromNetwork(data.set);
+  });
+}
 
 // build the list in html
 // give each drop down item unique id to match with cardset
@@ -78,17 +155,16 @@ function myFunction() {
 }
 
 function filterFunction() {
-  var input, filter, ul, li, a, i;
-  input = document.getElementById('myInput');
-  filter = input.value.toUpperCase();
-  div = document.getElementById('myDropdown');
-  a = div.getElementsByTagName('a');
-  for (i = 0; i < a.length; i++) {
-    txtValue = a[i].textContent || a[i].innerText;
-    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-      a[i].style.display = '';
+  const $input = document.getElementById('myInput');
+  const $filter = $input.value.toUpperCase();
+  const $div = document.getElementById('myDropdown');
+  const $a = $div.getElementsByTagName('a');
+  for (let i = 0; i < $a.length; i++) {
+    const $txtValue = $a[i].textContent || $a[i].innerText;
+    if ($txtValue.toUpperCase().indexOf($filter) > -1) {
+      $a[i].style.display = '';
     } else {
-      a[i].style.display = 'none';
+      $a[i].style.display = 'none';
     }
   }
 }
