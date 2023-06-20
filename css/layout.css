@@ -37,8 +37,16 @@
   width: 100%;
 }
 
+.dropbtn {
+  max-width: 575px;
+}
+
 @media screen and (min-width: 768px) {
   .container {
+    max-width: 900px;
+  }
+
+  .dropbtn {
     max-width: 900px;
   }
 

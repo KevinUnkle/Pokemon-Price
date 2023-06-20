@@ -30,7 +30,22 @@
   <div class="container">
     <div class="row search-row">
       <input type="text" id="search-bar" class="search-bar" placeholder="Search by name, set, rarity...">
-      <input type="text" id="filter-bar" class="filter-bar" placeholder="Filter by name, set, rarity...">
+      <!-- <input type="text" id="filter-bar" class="filter-bar" placeholder="Filter by set"> -->
+      <!--This is the added dropdown below-->
+      <div class="row dropdown">
+        <button onclick="myFunction()" class="dropbtn">Filter by Set</button>
+        <div id="myDropdown" class="dropdown-content">
+          <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+          <a id="base-set">Base Set 1999</a>
+          <a id="e-x">EX Series</a>
+          <a id="d-p">Diamond &amp; Pearl</a>
+          <a id="b-w">Black &amp; White</a>
+          <a id="x-y">XY Series</a>
+          <a id="s-m">Sun &amp; Moon</a>
+          <a id="s-s">Sword &amp; Shield</a>
+          <a id="s-v">Scarlet &amp; Violet</a>
+        </div>
+      </div>
     </div>
   </div>
   <div class="card-container">

@@ -50,18 +50,45 @@ function hideNoCardsText() {
 }
 
 const $searchBar = document.querySelector('#search-bar');
-// const $filterBar = document.querySelector('#filter-bar');
+const $filterBar = document.querySelector('#filter-bar');
 
 $searchBar.addEventListener('input', function (event) {
   const $searchValue = event.target.value;
   for (let i = 0; i < data.set.length; i++) {
     const $aCard = data.set[i];
-    // console.log('$aCard', $aCard.name);
-    // console.log('$searchValue', $searchValue);
-    if ($searchValue === $aCard.name) {
+    const $lowerCasedCard = $aCard.name.toLowerCase();
+    const $lowerCasedSearch = $searchValue.toLowerCase();
+    if ($lowerCasedCard === $lowerCasedSearch) {
       const $matchedCard = renderCard($aCard);
-      // console.log($matchedCard);
       $pokecardRow.append($matchedCard);
     }
   }
 });
+
+$filterBar.addEventListener('click', function (event) {
+
+});
+
+// build the list in html
+// give each drop down item unique id to match with cardset
+// populate data.set with cardset.setname
+// Dropdown edits below VVVV
+function myFunction() {
+  document.getElementById('myDropdown').classList.toggle('show');
+}
+
+function filterFunction() {
+  var input, filter, ul, li, a, i;
+  input = document.getElementById('myInput');
+  filter = input.value.toUpperCase();
+  div = document.getElementById('myDropdown');
+  a = div.getElementsByTagName('a');
+  for (i = 0; i < a.length; i++) {
+    txtValue = a[i].textContent || a[i].innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      a[i].style.display = '';
+    } else {
+      a[i].style.display = 'none';
+    }
+  }
+}
