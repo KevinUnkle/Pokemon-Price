@@ -120,6 +120,7 @@ function hideNoCardsText() {
 }
 
 const $searchBar = document.querySelector('#search-bar');
+const $newCardContainer = document.querySelector('.card-container');
 
 $searchBar.addEventListener('input', function (event) {
   const $searchValue = event.target.value;
@@ -129,7 +130,13 @@ $searchBar.addEventListener('input', function (event) {
     const $lowerCasedSearch = $searchValue.toLowerCase();
     if ($lowerCasedCard === $lowerCasedSearch) {
       const $matchedCard = renderCard($aCard);
-      $pokecardRow.append($matchedCard);
+      const $pokecardRow = document.querySelector('#pokecard-row');
+      $pokecardRow.remove();
+      const $newcardDiv = document.createElement('div');
+      $newcardDiv.className = ('row card-row');
+      $newcardDiv.setAttribute('id', 'pokecard-row');
+      $newcardDiv.append($matchedCard);
+      $newCardContainer.append($newcardDiv);
     }
   }
 });
@@ -142,7 +149,17 @@ for (let i = 0; i < $aDropDown.length; i++) {
     const $clickEvent = event.target;
     const $filterId = $clickEvent.getAttribute('id');
     data.set = cardSets[$filterId];
-    cardsFromNetwork(data.set);
+    const $pokecardRow = document.querySelector('#pokecard-row');
+    $pokecardRow.remove();
+    const $newcardDiv = document.createElement('div');
+    $newcardDiv.className = ('row card-row');
+    $newcardDiv.setAttribute('id', 'pokecard-row');
+    for (let i = 0; i < data.set.length; i++) {
+      const $cardFromNetwork = data.set[i];
+      const $cardDom = renderCard($cardFromNetwork);
+      $newcardDiv.append($cardDom);
+    }
+    $newCardContainer.append($newcardDiv);
   });
 }
 
