@@ -21,11 +21,12 @@
 }
 
 .card {
+  position: relative;
   margin-left: 5px;
   margin-top: 5px;
-  width: 160px;
-  height: 200px;
-  background-color: black;
+  margin-bottom: 160px;
+  margin-right: 30px;
+  height: 180px;
 }
 
 .row {
@@ -64,9 +65,11 @@
   }
 
   .card {
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-bottom: 35px;
     width: 240px;
     height: 310px;
-    background-color: black;
   }
 
   .card-row {

@@ -6,7 +6,8 @@ const cardSets = {
   xySet: null,
   smSet: null,
   swshSet: null,
-  svSet: null
+  svSet: null,
+  myDeck: []
 };
 
 function getBaseSetData() {
@@ -95,15 +96,31 @@ getSvData();
 function renderCard(card) {
   const $cardDiv = document.createElement('div');
   const $image = document.createElement('img');
+  const $blankButton = document.createElement('a');
+  $blankButton.className = ('blank-ball');
+  $blankButton.setAttribute('id', 'blank');
   $cardDiv.className = ('card');
   $image.className = ('pokemon');
+  $cardDiv.appendChild($blankButton);
   $image.setAttribute('src', card.images.small);
   $cardDiv.append($image);
+  $blankButton.addEventListener('click', function (event) {
+    for (let i = 0; i < cardSets.myDeck.length; i++) {
+      const $myDeckIndex = cardSets.myDeck[i];
+      if (card.name !== $myDeckIndex.name) {
+        cardSets.myDeck.push(card);
+      }
+      console.log('card set', cardSets.myDeck);
+      console.log('card', card);
+      console.log(card.name);
+    }
+    console.log(cardSets.myDeck);
+  });
   return $cardDiv;
 }
-const $pokecardRow = document.querySelector('#pokecard-row');
 
 function cardsFromNetwork(cardset) {
+  const $pokecardRow = document.querySelector('#pokecard-row');
   for (let i = 0; i < cardset.length; i++) {
     const $cardFromNetwork = cardset[i];
     const $cardDom = renderCard($cardFromNetwork);
