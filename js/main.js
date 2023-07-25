@@ -110,11 +110,7 @@ function renderCard(card) {
       if (card.name !== $myDeckIndex.name) {
         cardSets.myDeck.push(card);
       }
-      console.log('card set', cardSets.myDeck);
-      console.log('card', card);
-      console.log(card.name);
     }
-    console.log(cardSets.myDeck);
   });
   return $cardDiv;
 }
@@ -139,6 +135,8 @@ function hideNoCardsText() {
 const $searchBar = document.querySelector('#search-bar');
 const $newCardContainer = document.querySelector('.card-container');
 
+// SEARCH BAR FUNCTIONALITY!!
+
 $searchBar.addEventListener('input', function (event) {
   const $searchValue = event.target.value;
   for (let i = 0; i < data.set.length; i++) {
@@ -157,6 +155,8 @@ $searchBar.addEventListener('input', function (event) {
     }
   }
 });
+
+// FILTER BAR FUNCTIONALITY!
 
 const $aDropDown = document.querySelectorAll('a');
 
@@ -180,10 +180,6 @@ for (let i = 0; i < $aDropDown.length; i++) {
   });
 }
 
-// build the list in html
-// give each drop down item unique id to match with cardset
-// populate data.set with cardset.setname
-// Dropdown edits below VVVV
 function myFunction() {
   document.getElementById('myDropdown').classList.toggle('show');
 }

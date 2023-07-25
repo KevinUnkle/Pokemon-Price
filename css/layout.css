@@ -38,7 +38,7 @@
   width: 100%;
 }
 
-.dropbtn {
+.search-row {
   max-width: 575px;
 }
 
@@ -47,7 +47,11 @@
     max-width: 900px;
   }
 
-  .dropbtn {
+  .filterbar {
+    width: 180px;
+  }
+
+  .search-row {
     max-width: 900px;
   }
 

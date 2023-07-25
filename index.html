@@ -7,6 +7,9 @@
   <title>Pokemon Price</title>
   <link rel="icon" href="images/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Press+Start+2P&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/reset.css">
@@ -17,7 +20,7 @@
 <body>
   <header>
     <div class="row header-row">
-      <div>
+      <div class="header-div">
         <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Pok%C3%A9mon_Trading_Card_Game_logo.svg"
           class="tcg-logo" alt="pokemon trading card game logo" />
       </div>
@@ -34,7 +37,7 @@
     <div class="row search-row">
       <input type="text" id="search-bar" class="search-bar" placeholder="Search by name...">
       <div class="row dropdown">
-        <button onclick="myFunction()" class="dropbtn">Filter by Set</button>
+        <button onclick="myFunction()" class="dropbtn filterbar">Filter by Set</button>
         <div id="myDropdown" class="dropdown-content">
           <input type="text" placeholder="Search.." id="my-input" onkeyup="filterFunction()">
           <a id="baseSet">Base Set 1999</a>
